@@ -1,0 +1,2 @@
+dev:
+    uvicorn webapp.app:app --reload

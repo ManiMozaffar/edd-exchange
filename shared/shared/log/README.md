@@ -1,0 +1,1 @@
+Implement logging architecture here to be used in entire services.

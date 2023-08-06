@@ -1,0 +1,1 @@
+For simplicity, we have not created any SQL database, but there should have been 2 other services to handle user authentication and consistent order management.
