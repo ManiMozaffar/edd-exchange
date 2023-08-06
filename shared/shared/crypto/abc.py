@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod, abstractproperty
 from decimal import Decimal
 from typing import Type
 
-from shared.entities.money import Currency
+from shared.entities.money import USD, Currency
 
 
 class AbstractCrypto(ABC):
@@ -17,7 +17,7 @@ class AbstractCrypto(ABC):
         ...
 
     @abstractmethod
-    def get_rate_from_usd(self) -> Decimal:
+    def get_rate_from_usd(self) -> USD:
         ...
 
     @abstractproperty
