@@ -33,7 +33,7 @@ class Currency(ABC):
     def amount(self) -> Decimal:
         ...
 
-    def __init__(self, amount: float or str or Decimal):
+    def __init__(self, amount: float | str | Decimal):
         ...
 
     @abstractmethod
@@ -48,7 +48,7 @@ class Currency(ABC):
 
 
 class BaseCurrency(Currency):
-    def __init__(self, amount: float or str or Decimal):
+    def __init__(self, amount: float | str | Decimal):
         self._amount = Decimal(amount)
 
     @property
