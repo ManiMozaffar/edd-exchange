@@ -5,7 +5,6 @@ As of now, this is only a PROTO-TYPE
 from typing import Type
 
 from fastapi import Depends, FastAPI
-
 from shared.database.redis.impl import Redis, get_redis
 from shared.entities.order import CryptoOrder, RejectedOrder, StartedOrder
 from shared.event.component import AbanProducer
@@ -38,7 +37,7 @@ async def register_event(
     producer: Type[AbanProducer] = Depends(producer),
 ) -> None:
     result = await start_order(data)
-    if type(result) == StartedOrder:
+    if isinstance(result, StartedOrder):
         # REDUCE MONEY
         producer.produce_message(
             redis=redis,
