@@ -4,7 +4,7 @@ As of now, this is only a PROTO-TYPE
 
 from typing import Type
 
-from fastapi import Depends, FastAPI
+from fastapi import Body, Depends, FastAPI
 from shared.database.redis.impl import Redis, get_redis
 from shared.entities.order import CryptoOrder, RejectedOrder, StartedOrder
 from shared.event.component import AbanProducer
@@ -32,7 +32,7 @@ app = FastAPI()
 
 @app.post("/event")
 async def register_event(
-    data: CryptoOrder = Depends(),
+    data: CryptoOrder = Body(),
     redis: Redis = Depends(redis),
     producer: Type[AbanProducer] = Depends(producer),
 ) -> None:
